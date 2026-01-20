@@ -1,0 +1,27 @@
+# Configuration file for scrub tool
+# Location: ~/.config/scrub/config.yaml
+
+corporate:
+  # List of company/organization names to redact
+  company_names:
+    - "Example Corp"
+    - "Example Inc"
+    - "Acme Corporation"
+  
+  # List of internal domains to redact (in URLs and email addresses)
+  domains:
+    - "example.com"
+    - "internal.example.io"
+    - "corp.example.net"
+  
+  # List of project/product code names to redact
+  project_names:
+    - "Project Phoenix"
+    - "Codename Titan"
+    - "Operation Thunderbolt"
+  
+  # Custom deny-list of terms to always redact
+  deny_list:
+    - "confidential-system-name"
+    - "internal-tool-v2"
+    - "secret-api-key"
