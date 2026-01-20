@@ -4,35 +4,35 @@
 
 ### Step-by-Step Instructions:
 
-1. **Open Shortcuts.app**
+1. **Shortcuts.app is opened**
    - Press `Cmd+Space` and type "Shortcuts"
-   - Or find it in Applications folder
+   - Or find it in the Applications folder
 
-2. **Create a New Shortcut**
+2. **A New Shortcut is Created**
    - Click the **"+"** button in the top toolbar (or top-right corner)
    - This creates a new blank shortcut
 
-3. **Add the Shell Script Action**
+3. **The Shell Script Action is Added**
    - In the search bar on the right side, type: **"Run Shell Script"**
-   - Click or drag **"Run Shell Script"** into your workflow area
+   - Click or drag **"Run Shell Script"** into the workflow area
 
-4. **Configure the Script**
+4. **Configuration of the Script**
    - In the script box that appears, DELETE any existing text
    - Type or paste this EXACT path:
      ```
      ~/.local/bin/scrub
      ```
-   - Make sure there are NO extra spaces or quotes
+   - Ensure there are NO extra spaces or quotes
 
-5. **Name Your Shortcut**
-   - At the top of the screen, you'll see "New Shortcut" or similar
+5. **Naming the Shortcut**
+   - At the top of the screen, locate "New Shortcut" or similar
    - Click on it and rename to: **"Scrub Clipboard"**
 
-6. **Add Keyboard Shortcut** (This is the tricky part!)
+6. **Adding a Keyboard Shortcut**
    
    **IMPORTANT:** The keyboard shortcut option is NOT in Shortcuts.app itself!
    
-   You need to:
+   The following steps are required:
    - **Save/Close** the shortcut first (it auto-saves)
    - Go to **System Settings** (or System Preferences on older macOS)
    - Go to **Keyboard**
@@ -41,7 +41,7 @@
    - Scroll down in the right panel to find **"Scrub Clipboard"** under "General"
    - Click on "Scrub Clipboard" - a button should appear on the right
    - Click **"Add Shortcut"** button
-   - Press your desired key combo (e.g., `Cmd+Shift+V`)
+   - Press the desired key combination (e.g., `Cmd+Shift+V`)
 
 ---
 
@@ -51,16 +51,16 @@ This method is more reliable and works on older macOS versions:
 
 ### Step-by-Step Instructions:
 
-1. **Open Automator**
+1. **Automator is opened**
    - Press `Cmd+Space` and type "Automator"
-   - Or find it in Applications folder
+   - Or find it in the Applications folder
 
-2. **Create a Quick Action**
+2. **A Quick Action is Created**
    - Click **"New Document"** (or File → New)
    - Choose **"Quick Action"** (or "Service" on older macOS)
    - Click **Choose**
 
-3. **Configure the Workflow**
+3. **Configuration of the Workflow**
    - At the top, set:
      - **"Workflow receives:"** → select **"no input"**
      - **"in"** → select **"any application"**
@@ -69,20 +69,20 @@ This method is more reliable and works on older macOS versions:
    - In the search box (left side), type: **"Run Shell Script"**
    - Double-click **"Run Shell Script"** or drag it to the right panel
 
-5. **Configure the Script**
+5. **Configuration of the Script**
    - In the script text box, DELETE any existing text
    - Type or paste:
      ```
      ~/.local/bin/scrub
      ```
-   - Make sure **Shell:** is set to **/bin/bash** or **/bin/zsh**
+   - Ensure **Shell:** is set to **/bin/bash** or **/bin/zsh**
 
-6. **Save the Quick Action**
+6. **Saving the Quick Action**
    - Press `Cmd+S` or File → Save
    - Name it: **"Scrub Clipboard"**
    - Click **Save**
 
-7. **Assign Keyboard Shortcut**
+7. **Assigning a Keyboard Shortcut**
    - Open **System Settings** (or System Preferences)
    - Go to **Keyboard**
    - Click **Keyboard Shortcuts** (or just "Shortcuts")
@@ -90,13 +90,13 @@ This method is more reliable and works on older macOS versions:
    - Scroll down to find **"Scrub Clipboard"** under "General"
    - Check the checkbox next to it to enable it
    - Click on the right side of "Scrub Clipboard" to add shortcut
-   - Press your desired keys (e.g., `Cmd+Shift+V` or `Ctrl+Shift+S`)
+   - Press the desired keys (e.g., `Cmd+Shift+V` or `Ctrl+Shift+S`)
 
 ---
 
 ## Method 3: Simple Alfred/Raycast Alternative
 
-If you use **Alfred** or **Raycast**:
+If **Alfred** or **Raycast** is used:
 
 ### Alfred:
 1. Create a workflow
@@ -118,25 +118,25 @@ If you use **Alfred** or **Raycast**:
 
 ## Recommended Keyboard Shortcuts
 
-Choose one that doesn't conflict:
+A non-conflicting shortcut should be chosen:
 
 - `Cmd+Shift+V` - Similar to "paste without formatting"
 - `Ctrl+Shift+S` - Easy to remember (S for Scrub)
 - `Cmd+Option+V` - Alternative paste shortcut
 - `Ctrl+Option+C` - After copying
 
-**Test if shortcut is taken:** Try pressing it in any app first!
+**Test if shortcut is taken:** Try pressing it in any application first!
 
 ---
 
-## Testing Your Shortcut
+## Testing the Shortcut
 
 1. Copy some text with PII:
    ```
    echo "My name is John Smith, email: john@test.com" | pbcopy
    ```
 
-2. Press your keyboard shortcut
+2. Press the keyboard shortcut
 
 3. Paste somewhere (Cmd+V):
    ```
@@ -148,14 +148,14 @@ Choose one that doesn't conflict:
 ## Troubleshooting
 
 ### "Shortcut didn't work"
-- Make sure you enabled it in System Settings → Keyboard → Shortcuts → Services
+- Ensure it is enabled in System Settings → Keyboard → Shortcuts → Services
 - Check the checkbox next to "Scrub Clipboard"
 - Try the shortcut again
 
 ### "Can't find Scrub Clipboard in Services"
 - Close and reopen System Settings
 - Log out and log back in
-- Restart your Mac
+- Restart the Mac
 
 ### "Permission denied" errors
 - System Settings → Privacy & Security → Automation
@@ -163,14 +163,14 @@ Choose one that doesn't conflict:
 
 ### "Still not working"
 - Test manually first: Open Terminal and run `scrub --version`
-- Make sure the path is EXACTLY: `~/.local/bin/scrub`
+- Ensure the path is EXACTLY: `~/.local/bin/scrub`
 - No quotes, no extra spaces
 
 ---
 
 ## Quick Manual Test
 
-Before setting up the shortcut, test it works:
+Before setting up the shortcut, testing is recommended:
 
 ```bash
 # Copy something
@@ -184,15 +184,15 @@ pbpaste
 # Should show: Test: <PERSON>, <ORGANIZATION> 123-45-6789
 ```
 
-If this works, the shortcut will work too!
+If this works, the shortcut should work too!
 
 ---
 
-## Need Help?
+## Further Assistance
 
-If you're still stuck, tell me:
-1. Which macOS version you're on (run: `sw_vers`)
-2. Which method you tried (Shortcuts.app or Automator)
-3. What happened when you pressed the keyboard shortcut
+If issues persist:
+1. Check the macOS version (run: `sw_vers`)
+2. Note which method was tried (Shortcuts.app or Automator)
+3. Observe what happens when the keyboard shortcut is pressed
 
-I can help debug further!
+This information will assist in debugging!

@@ -2,7 +2,7 @@
 # Location: ~/.config/scrub/config.yaml
 
 corporate:
-  # List of company/organization names to redact
+  # List of company/organisation names to redact
   company_names:
     - "Example Corp"
     - "Example Inc"

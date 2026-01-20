@@ -1,20 +1,20 @@
 # SecureCopyPaste - `scrub`
 
-A CLI tool to automatically strip PII (Personally Identifiable Information) and corporate information from your clipboard content before pasting.
+A CLI tool to automatically strip PII (Personally Identifiable Information) and corporate information from clipboard content before pasting.
 
-Built with [Microsoft Presidio](https://microsoft.github.io/presidio/) for robust PII detection and anonymization.
+Built with [Microsoft Presidio](https://microsoft.github.io/presidio/) for robust PII detection and anonymisation.
 
 ## Features
 
 - Detects and redacts common PII:
   - Names, email addresses, phone numbers
-  - Credit cards, SSNs, passports, driver licenses
+  - Credit cards, SSNs, passports, driver licences
   - IP addresses, URLs, dates
-  - Medical licenses, bank account numbers
+  - Medical licences, bank account numbers
   - And much more (see [supported entities](https://microsoft.github.io/presidio/supported_entities/))
 
 - Custom corporate information redaction:
-  - Company/organization names
+  - Company/organisation names
   - Internal domains and URLs
   - Project/product code names
   - Custom deny-list terms
@@ -31,15 +31,15 @@ Built with [Microsoft Presidio](https://microsoft.github.io/presidio/) for robus
 - Python 3.8 or higher
 - macOS (uses `pbcopy`/`pbpaste` for clipboard access)
 
-### Install Steps
+### Installation Steps
 
-1. Clone or download this repository:
+1. The repository can be cloned or downloaded:
 
 ```bash
 cd ~/Github/SecureCopyPaste
 ```
 
-2. Install the package:
+2. The package is then installed:
 
 ```bash
 # Install in development mode (recommended for easy updates)
@@ -49,7 +49,7 @@ pip install -e .
 pip install .
 ```
 
-3. Download the spaCy NLP model (required for name/location detection):
+3. The spaCy NLP model must be downloaded (required for name/location detection):
 
 ```bash
 python -m spacy download en_core_web_lg
@@ -57,13 +57,13 @@ python -m spacy download en_core_web_lg
 
 This may take a few minutes as the model is ~500MB.
 
-4. (Optional) Create a configuration file:
+4. (Optional) A configuration file can be created:
 
 ```bash
 scrub --init-config
 ```
 
-This creates `~/.config/scrub/config.yaml` with example corporate terms. Edit this file to add your own company names, domains, project names, and deny-list terms.
+This creates `~/.config/scrub/config.yaml` with example corporate terms. This file can be edited to include company names, domains, project names, and deny-list terms.
 
 ## Usage
 
@@ -107,11 +107,11 @@ Credit card: <CREDIT_CARD>
 
 ### Configuration
 
-The config file at `~/.config/scrub/config.yaml` allows you to specify corporate information to redact:
+The config file at `~/.config/scrub/config.yaml` allows for the specification of corporate information to redact:
 
 ```yaml
 corporate:
-  # Company/organization names
+  # Company/organisation names
   company_names:
     - "Acme Corp"
     - "Acme Inc"
@@ -132,23 +132,23 @@ corporate:
     - "internal-tool-v2"
 ```
 
-See `config/config.example.yaml` for a complete example.
+A complete example is available in `config/config.example.yaml`.
 
 ## macOS Keyboard Shortcut Setup
 
-For quick access, set up a keyboard shortcut to run `scrub` automatically.
+For quick access, a keyboard shortcut can be set up to run `scrub` automatically.
 
 ### Option 1: Using macOS Shortcuts.app (Recommended)
 
-1. Open **Shortcuts.app** (comes with macOS)
+1. Shortcuts.app can be opened (comes with macOS).
 
-2. Click the **+** button to create a new shortcut
+2. A new shortcut is created by clicking the **+** button.
 
-3. Add a "Run Shell Script" action:
+3. A "Run Shell Script" action is added:
    - Search for "Run Shell Script" in the actions sidebar
    - Drag it to the workflow
 
-4. Configure the shell script:
+4. The shell script is configured as follows:
    - Shell: `/bin/bash`
    - Pass input: (doesn't matter)
    - Script content:
@@ -156,27 +156,27 @@ For quick access, set up a keyboard shortcut to run `scrub` automatically.
      /usr/local/bin/scrub
      ```
    
-   Note: Find your `scrub` path with: `which scrub`
+   Note: The `scrub` path can be found with: `which scrub`
 
-5. Save the shortcut with a name like "Scrub Clipboard"
+5. The shortcut is saved with a name like "Scrub Clipboard".
 
-6. Assign a keyboard shortcut:
+6. A keyboard shortcut is assigned:
    - Right-click the shortcut → **Add Keyboard Shortcut**
-   - Press your desired key combination (e.g., `Cmd+Shift+V` or `Ctrl+Shift+S`)
-   - If the shortcut is already in use, try another combination
+   - Press the desired key combination (e.g., `Cmd+Shift+V` or `Ctrl+Shift+S`)
+   - Ensure the shortcut is not already in use by another application.
 
-7. Test it:
-   - Copy some text with PII to your clipboard
-   - Press your keyboard shortcut
+7. Testing:
+   - Copy text with PII to the clipboard
+   - Press the keyboard shortcut
    - Paste to verify the content was scrubbed
 
 ### Option 2: Using Automator
 
-1. Open **Automator** (in Applications)
+1. Automator (in Applications) is opened.
 
-2. Create a new **Quick Action**
+2. A new **Quick Action** is created.
 
-3. Configure the workflow:
+3. The workflow is configured:
    - "Workflow receives": **no input** in **any application**
    - Add action: **Run Shell Script**
    - Shell: `/bin/bash`
@@ -186,17 +186,17 @@ For quick access, set up a keyboard shortcut to run `scrub` automatically.
      /usr/local/bin/scrub
      ```
 
-4. Save as "Scrub Clipboard"
+4. Saved as "Scrub Clipboard".
 
-5. Assign keyboard shortcut:
+5. A keyboard shortcut is assigned:
    - Open **System Settings** → **Keyboard** → **Shortcuts**
    - Select **Services** in the sidebar
    - Find "Scrub Clipboard" under **General**
-   - Click **Add Shortcut** and press your desired keys
+   - Click **Add Shortcut** and press the desired keys
 
 ### Warp Terminal Integration
 
-Since you're using Warp, you can also create an alias or function in your shell profile:
+For Warp users, an alias or function can be created in the shell profile:
 
 ```bash
 # Add to ~/.zshrc or ~/.bashrc
@@ -225,7 +225,7 @@ SecureCopyPaste/
         ├── clipboard.py        # macOS clipboard utilities
         ├── config.py           # Configuration management
         ├── scrubber.py         # Core Presidio integration
-        └── recognizers/        # Custom PII recognizers
+        └── recognisers/        # Custom PII recognisers
             ├── corporate.py    # Company name detection
             ├── domains.py      # Internal domain detection
             └── denylist.py     # Custom deny-list terms
@@ -249,7 +249,7 @@ This tool requires macOS. The clipboard commands are macOS-specific.
 
 ### spaCy model not found
 
-Make sure you downloaded the model:
+Ensure the model has been downloaded:
 
 ```bash
 python -m spacy download en_core_web_lg
@@ -260,25 +260,25 @@ python -m spacy download en_core_web_lg
 Presidio uses confidence scores. Some entities may not be detected if:
 - The confidence score is too low
 - The text doesn't match expected patterns
-- The NLP model doesn't recognize the entity
+- The NLP model doesn't recognise the entity
 
-You can use `--dry-run` to see what is detected.
+Use `--dry-run` to see what is detected.
 
 ### Keyboard shortcut not working
 
-- Make sure the `scrub` command works from terminal first
-- Verify the path to `scrub` in your shortcut matches `which scrub`
+- Ensure the `scrub` command works from the terminal first
+- Verify the path to `scrub` in the shortcut matches `which scrub`
 - Check that the keyboard shortcut isn't already in use
 - macOS may require permissions for Shortcuts/Automator to run shell commands
 
 ## Security Notes
 
 - Presidio uses automated detection and may not catch all PII
-- Always review scrubbed content before sharing sensitive information
-- Consider this tool as a helpful safeguard, not a guarantee
+- Scrubbed content should always be reviewed before sharing sensitive information
+- This tool serves as a helpful safeguard, not a guarantee
 - Config files may contain sensitive corporate terms - protect accordingly
 
-## License
+## Licence
 
 MIT
 

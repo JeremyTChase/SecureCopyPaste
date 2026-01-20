@@ -2,7 +2,7 @@
 
 ## Installation
 
-1. Install the package:
+1. The package is installed:
 
 ```bash
 # Using pip (create a virtual environment first if needed)
@@ -12,7 +12,7 @@ pip install -e .
 pipx install .
 ```
 
-2. Download the required spaCy NLP model:
+2. The required spaCy NLP model must be downloaded:
 
 ```bash
 python -m spacy download en_core_web_lg
@@ -22,7 +22,7 @@ This downloads a ~400MB model file needed for name and location detection.
 
 ## First Run
 
-1. Initialize your config file:
+1. Initialisation of the config file:
 
 ```bash
 scrub --init-config
@@ -30,7 +30,7 @@ scrub --init-config
 
 This creates `~/.config/scrub/config.yaml` with example corporate terms.
 
-2. Edit the config file to add your company's information:
+2. The config file can be edited to add company information:
 
 ```bash
 # macOS/Linux
@@ -39,7 +39,7 @@ nano ~/.config/scrub/config.yaml
 code ~/.config/scrub/config.yaml
 ```
 
-3. Test it out:
+3. Testing:
 
 ```bash
 # Test with stdin
@@ -51,23 +51,23 @@ scrub
 pbpaste
 ```
 
-## Setting Up Keyboard Shortcut (macOS)
+## Setting Up a Keyboard Shortcut (macOS)
 
 ### Option 1: Using Shortcuts.app
 
-1. Open **Shortcuts.app**
-2. Click **+** to create new shortcut
-3. Add "Run Shell Script" action
-4. Enter the full path to scrub:
+1. Shortcuts.app is opened.
+2. A new shortcut is created by clicking **+**.
+3. A "Run Shell Script" action is added.
+4. The full path to `scrub` is entered:
    ```bash
    /full/path/to/scrub
-   # Find your path with: which scrub
+   # Find the path with: which scrub
    ```
-5. Save as "Scrub Clipboard"
-6. Right-click → **Add Keyboard Shortcut**
-7. Press your desired key combo (e.g., Cmd+Shift+V)
+5. Saved as "Scrub Clipboard".
+6. Right-click → **Add Keyboard Shortcut**.
+7. The desired key combination is pressed (e.g., Cmd+Shift+V).
 
-### Finding Your scrub Path
+### Finding the `scrub` Path
 
 ```bash
 which scrub
@@ -91,7 +91,7 @@ cat file.txt | scrub --stdin > cleaned.txt
 scrub --config /path/to/custom-config.yaml
 ```
 
-## Updating Your Config
+## Updating the Configuration
 
 Edit `~/.config/scrub/config.yaml`:
 
@@ -122,8 +122,8 @@ python -m spacy download en_core_web_lg
 ```
 
 **Keyboard shortcut not working?**
-- Verify `scrub` works from terminal first
-- Check the path in your shortcut matches `which scrub`
+- Verify `scrub` works from the terminal first
+- Check the path in the shortcut matches `which scrub`
 - macOS may need permissions for Shortcuts/Automator
 
 **Want to install system-wide?**
